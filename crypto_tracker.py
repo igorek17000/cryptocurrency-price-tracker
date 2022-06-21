@@ -18,7 +18,7 @@ logging.basicConfig(level=logging.INFO, format=format_str)
 
 def get_crypto_ids():
 	"""
-	Returns a list of all the cryptocurrency abbrevations for the currencies of interest
+	Returns a list of all the cryptocurrency abbrevations from the text file containing the cryptocurrencies of interest
 	"""
 	with open('crypto_ids.txt') as f:
 		crypto_ids = f.readlines()
@@ -36,7 +36,8 @@ def get_price_data(cyrpto_abbrev):
 		cyrpto_abbrev (str): abbreviation for the requested cryptocurrency
 
 	Returns:
-		price (JSON): contains the current exchange price in the "price" key
+		price_data (JSON): Contains the abbreviation of the cryptocurrency in the 'symbol' key
+			and contains the current exchange price in the 'price' key
 	"""
 	cyrpto_url = f'https://api.binance.com/api/v3/ticker/price?symbol={cyrpto_abbrev}' # Binance API URL
 	price_data = requests.get(cyrpto_url)
