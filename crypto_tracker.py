@@ -44,13 +44,13 @@ def get_price_data(cyrpto_abbrev):
 
 def write_price_data(price_data):
 	"""
-	
+	Writes the price of the cryptocurrency at the current date and time to the CSV file
+	for the cryptocurrency. If the cryptocurrency does not have a CSV file, one will be
+	created for it
 
 	Args:
-		price_data (JSON): 
-
-	Returns:
-		
+		price_data (JSON): Contains the abbreviation of the cryptocurrency in the 'symbol' key
+			and contains the current exchange price in the 'price' key
 	"""
 	cyrpto_abbrev = price_data['symbol']
 	price = price_data['price']
